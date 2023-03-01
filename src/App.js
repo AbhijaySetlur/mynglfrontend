@@ -35,7 +35,7 @@ function App() {
     
   
     // Join a room
-    VideoChat.connect(mynglbackend-ksx619hzp-abhijaysetlur.vercel.app, { name: roomName }).then(room => {
+    VideoChat.connect(token, { name: roomName }).then(room => {
       setRoom(room);
       console.log(`Connected to ${roomName}`);
 
