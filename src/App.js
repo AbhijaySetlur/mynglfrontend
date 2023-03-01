@@ -12,10 +12,6 @@ function App() {
   const [messages, setMessages] = useState([]);
   
   function handleSubmit(e) {
-    e.preventDefault();
-    setMessages([...messages, { name, message }]);
-    setName('');
-    setMessage('');
   }
 
 
