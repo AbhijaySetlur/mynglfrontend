@@ -22,7 +22,8 @@ function App() {
   const handleJoinRoom = async ()=> {
       // Check if the room is full
       try {
-        const data = await(await fetch(`https://mynglbackend.vercel.app/token`)).json()
+        const data = await(await fetch(`https://mynglbackend.vercel.app`))
+        console.log(data)
         setToken(data.token)
         setRoomName(data.roomName)
       } catch (err) {
