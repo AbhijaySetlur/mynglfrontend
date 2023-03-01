@@ -11,13 +11,6 @@ function App() {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   
-  function handleSubmit(e) {
-    e.preventDefault();
-    setMessages([...messages, { name, message }]);
-    setName('');
-    setMessage('');
-  }
-
 
   const handleJoinRoom = async ()=> {
       // Check if the room is full
