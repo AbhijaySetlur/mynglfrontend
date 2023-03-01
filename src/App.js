@@ -23,24 +23,12 @@ function App() {
       // Check if the room is full
       try {
         const data = await fetch(`https://mynglbackend.vercel.app/token`)
-        .then(res => {
-          setToken(res.token)
-          setRoomName(res.roomName)
-        }
+        .then(res => res.json()
         )
-      } catch (err) {
-          console.log(err.message)
-      }
-      console.log(token)
-      console.log(roomName)
-
-
-    
-  
-    // Join a room
-    VideoChat.connect(token, { name: roomName }).then(room => {
+          // Join a room
+    VideoChat.connect(data.token, { name: data.roomName }).then(room => {
       setRoom(room);
-      console.log(`Connected to ${roomName}`);
+      console.log(`Connected to ${data.roomName }`);
 
       // Attach media streams to the UI
       room.on('trackSubscribed', track => {
@@ -48,6 +36,12 @@ function App() {
         container.appendChild(track.attach());
       });
     });
+      } catch (err) {
+          console.log(err.message)
+      }
+      console.log("Token", token)
+      console.log("Room Name", roomName)
+  
   }
 
   function handleLeaveRoom() {
